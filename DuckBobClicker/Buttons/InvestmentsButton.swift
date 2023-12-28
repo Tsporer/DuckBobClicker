@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 class InvestmentsButton: UIButton {
+    
+    var displayed = false
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,16 +25,15 @@ class InvestmentsButton: UIButton {
     private func configureButton() {
         let investmentsButtonImage = UIImage(named: "InvestmentsZero")
         setImage(investmentsButtonImage, for: .normal)
-
-        addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
         addTarget(self, action: #selector(buttonTouchUp), for: [.touchUpInside, .touchUpOutside])
     }
 
-    @objc private func buttonTouchDown() {
-        print("Hi!")
-    }
-
     @objc private func buttonTouchUp() {
-       print("Hi!")
+        if displayed {
+            (self.superview?.next as? GameViewController)?.animateInvestmentsSlideDown()
+        } else {
+            (self.superview?.next as? GameViewController)?.animateInvestmentsSlideUp()
+        }
+        displayed = !displayed
     }
 }

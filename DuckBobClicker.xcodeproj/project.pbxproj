@@ -18,6 +18,14 @@
 		A1743A8D2B3B871900CA98BE /* DuckBobClickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1743A8C2B3B871900CA98BE /* DuckBobClickerTests.swift */; };
 		A1743A972B3B871900CA98BE /* DuckBobClickerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1743A962B3B871900CA98BE /* DuckBobClickerUITests.swift */; };
 		A1743A992B3B871900CA98BE /* DuckBobClickerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1743A982B3B871900CA98BE /* DuckBobClickerUITestsLaunchTests.swift */; };
+		A1743AA62B3B9ED000CA98BE /* CoinButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1743AA52B3B9ED000CA98BE /* CoinButton.swift */; };
+		A1743AAB2B3BB7C900CA98BE /* Silkscreen-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1743AA92B3BB7C900CA98BE /* Silkscreen-Bold.ttf */; };
+		A1743AAC2B3BB7C900CA98BE /* Silkscreen-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1743AAA2B3BB7C900CA98BE /* Silkscreen-Regular.ttf */; };
+		A1743AAF2B3BCBC200CA98BE /* SkillTreeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1743AAE2B3BCBC200CA98BE /* SkillTreeButton.swift */; };
+		A1743AB12B3CC1A500CA98BE /* InvestmentsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1743AB02B3CC1A500CA98BE /* InvestmentsButton.swift */; };
+		A1743AB62B3CCB9300CA98BE /* Farmers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1743AB52B3CCB9300CA98BE /* Farmers.swift */; };
+		A1743AB82B3CE9A500CA98BE /* InvestmentsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1743AB72B3CE9A500CA98BE /* InvestmentsContainerView.swift */; };
+		A1743ABA2B3CEA1400CA98BE /* InvestmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1743AB92B3CEA1400CA98BE /* InvestmentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +60,15 @@
 		A1743A922B3B871900CA98BE /* DuckBobClickerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DuckBobClickerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1743A962B3B871900CA98BE /* DuckBobClickerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuckBobClickerUITests.swift; sourceTree = "<group>"; };
 		A1743A982B3B871900CA98BE /* DuckBobClickerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuckBobClickerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A1743AA52B3B9ED000CA98BE /* CoinButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinButton.swift; sourceTree = "<group>"; };
+		A1743AA92B3BB7C900CA98BE /* Silkscreen-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Silkscreen-Bold.ttf"; sourceTree = "<group>"; };
+		A1743AAA2B3BB7C900CA98BE /* Silkscreen-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Silkscreen-Regular.ttf"; sourceTree = "<group>"; };
+		A1743AAD2B3BB82000CA98BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A1743AAE2B3BCBC200CA98BE /* SkillTreeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTreeButton.swift; sourceTree = "<group>"; };
+		A1743AB02B3CC1A500CA98BE /* InvestmentsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentsButton.swift; sourceTree = "<group>"; };
+		A1743AB52B3CCB9300CA98BE /* Farmers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Farmers.swift; sourceTree = "<group>"; };
+		A1743AB72B3CE9A500CA98BE /* InvestmentsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentsContainerView.swift; sourceTree = "<group>"; };
+		A1743AB92B3CEA1400CA98BE /* InvestmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +119,10 @@
 		A1743A712B3B871600CA98BE /* DuckBobClicker */ = {
 			isa = PBXGroup;
 			children = (
+				A1743AB42B3CCB8000CA98BE /* Investments */,
+				A1743AB32B3CCB7200CA98BE /* Fonts */,
+				A1743AB22B3CCB5600CA98BE /* Buttons */,
+				A1743AAD2B3BB82000CA98BE /* Info.plist */,
 				A1743A722B3B871700CA98BE /* AppDelegate.swift */,
 				A1743A742B3B871700CA98BE /* GameScene.sks */,
 				A1743A762B3B871700CA98BE /* Actions.sks */,
@@ -129,6 +150,35 @@
 				A1743A982B3B871900CA98BE /* DuckBobClickerUITestsLaunchTests.swift */,
 			);
 			path = DuckBobClickerUITests;
+			sourceTree = "<group>";
+		};
+		A1743AB22B3CCB5600CA98BE /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				A1743AA52B3B9ED000CA98BE /* CoinButton.swift */,
+				A1743AAE2B3BCBC200CA98BE /* SkillTreeButton.swift */,
+				A1743AB02B3CC1A500CA98BE /* InvestmentsButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		A1743AB32B3CCB7200CA98BE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A1743AA92B3BB7C900CA98BE /* Silkscreen-Bold.ttf */,
+				A1743AAA2B3BB7C900CA98BE /* Silkscreen-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		A1743AB42B3CCB8000CA98BE /* Investments */ = {
+			isa = PBXGroup;
+			children = (
+				A1743AB52B3CCB9300CA98BE /* Farmers.swift */,
+				A1743AB72B3CE9A500CA98BE /* InvestmentsContainerView.swift */,
+				A1743AB92B3CEA1400CA98BE /* InvestmentView.swift */,
+			);
+			path = Investments;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,9 +286,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1743A7E2B3B871700CA98BE /* Main.storyboard in Resources */,
+				A1743AAC2B3BB7C900CA98BE /* Silkscreen-Regular.ttf in Resources */,
 				A1743A752B3B871700CA98BE /* GameScene.sks in Resources */,
 				A1743A802B3B871800CA98BE /* Assets.xcassets in Resources */,
 				A1743A832B3B871800CA98BE /* LaunchScreen.storyboard in Resources */,
+				A1743AAB2B3BB7C900CA98BE /* Silkscreen-Bold.ttf in Resources */,
 				A1743A772B3B871700CA98BE /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,9 +316,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1743AB62B3CCB9300CA98BE /* Farmers.swift in Sources */,
+				A1743AB12B3CC1A500CA98BE /* InvestmentsButton.swift in Sources */,
+				A1743AA62B3B9ED000CA98BE /* CoinButton.swift in Sources */,
 				A1743A792B3B871700CA98BE /* GameScene.swift in Sources */,
+				A1743ABA2B3CEA1400CA98BE /* InvestmentView.swift in Sources */,
+				A1743AAF2B3BCBC200CA98BE /* SkillTreeButton.swift in Sources */,
 				A1743A7B2B3B871700CA98BE /* GameViewController.swift in Sources */,
 				A1743A732B3B871700CA98BE /* AppDelegate.swift in Sources */,
+				A1743AB82B3CE9A500CA98BE /* InvestmentsContainerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,7 +501,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LQF2R374P8;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DuckBobClicker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -470,7 +530,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LQF2R374P8;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DuckBobClicker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
