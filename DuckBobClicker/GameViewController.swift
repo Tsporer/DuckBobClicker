@@ -11,6 +11,7 @@ import GameplayKit
 
 class GameViewController: UIViewController, CoinButtonDelegate {
     
+    
     // Main Components
     var coinButton: CoinButton!
     var skillTreeButton: SkillTreeButton!
@@ -24,6 +25,8 @@ class GameViewController: UIViewController, CoinButtonDelegate {
             UserDefaults.standard.set(score, forKey: "score")
         }
     }
+    
+    var coinButtonDelegate: CoinButtonDelegate?
     
     // Investments
     var investmentsContainer: InvestmentsContainerView!
@@ -71,6 +74,7 @@ class GameViewController: UIViewController, CoinButtonDelegate {
                     // Add a CoinButton
                     coinButton = CoinButton(type: .custom)
                     coinButton.delegate = self
+                    coinButton.coinButtonDelegate = self  // Assign the delegate for smaller coin animation
                     setupCoinButton()
                     view.addSubview(coinButton)
                     
@@ -194,10 +198,28 @@ class GameViewController: UIViewController, CoinButtonDelegate {
         )
     }
     
-    func coinButtonPressed() {
+    func coinButtonPressed(at point: CGPoint) {
         // Increment the score and update the label
         score += 1
         scoreLabel.text = "\(score)"
+        
+        // Notify the CoinButtonDelegate to handle the smaller coin animation
+        coinButtonDelegate?.coinButtonPressed(at: point)
+        
+        // Create a smaller coin view
+        let smallCoinSize: CGFloat = 30
+        let smallCoinView = UIImageView(frame: CGRect(x: point.x - smallCoinSize/2, y: point.y - smallCoinSize/2, width: smallCoinSize, height: smallCoinSize))
+        smallCoinView.image = UIImage(named: "CopperCoin") // Use the appropriate image name
+        view.addSubview(smallCoinView)
+
+        // Animate the smaller coin
+        UIView.animate(withDuration: 1.0, animations: {
+            smallCoinView.center.y -= 100 // Adjust the distance the smaller coin will move up
+            smallCoinView.alpha = 0.0
+        }, completion: { _ in
+            // Remove the smaller coin view after the animation is complete
+            smallCoinView.removeFromSuperview()
+        })
     }
     
     private func setupInvestmentsContainer() {

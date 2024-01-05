@@ -3,9 +3,9 @@ import UIKit
 class InvestmentsContainerView: UIScrollView {
 
     private var investments: [InvestmentView] = []
-    private weak var parentViewController: UIViewController?
+    private weak var parentViewController: GameViewController?
 
-    init(frame: CGRect, parentViewController: UIViewController) {
+    init(frame: CGRect, parentViewController: GameViewController) {
         super.init(frame: frame)
         self.parentViewController = parentViewController
         setupInvestments()
@@ -29,6 +29,20 @@ class InvestmentsContainerView: UIScrollView {
                 height: invFrameWidth * 360 / 1540
             )
             let farmers = InvestmentView(frame: investmentFrame, spriteName: "FarmerSprite", baseCost: 10, income: 1)
+            
+            farmers.parentViewController = parentViewController
+            
+            // Set the purchaseHandler
+            farmers.purchaseHandler = {
+                farmers.purchase()
+            }
+            
+            // Set the updateScoreHandler
+            farmers.updateScoreHandler = { [weak self] income in
+                // Update the score in GameViewController
+                self?.parentViewController?.score += income
+                self?.parentViewController?.scoreLabel.text = "\(self?.parentViewController?.score ?? 0)"
+            }
 
             yOffset += investmentFrame.height
 

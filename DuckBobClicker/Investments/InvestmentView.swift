@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 class InvestmentView: UIButton {
+    
+    private var incomeStarted = false
 
     var amount: Int = 0
     var baseCost: Int = 0
@@ -16,6 +18,8 @@ class InvestmentView: UIButton {
 
     // Callback for handling the purchase
     var purchaseHandler: (() -> Void)?
+    var updateScoreHandler: ((Int) -> Void)?
+//    var updateScoreHandler: ((Double) -> Void)?
     
     // Image view for the investment sprite
     private let farmersImageView = UIImageView()
@@ -24,6 +28,8 @@ class InvestmentView: UIButton {
     private let costLabel = UILabel()
     private let incomeLabel = UILabel()
     private let amountLabel = UILabel()
+    
+    weak var parentViewController: GameViewController?
 
     init(frame: CGRect, spriteName: String, baseCost: Int, income: Int) {
         super.init(frame: frame)
@@ -76,7 +82,7 @@ class InvestmentView: UIButton {
         addSubview(costLabel)
 
         // Income Label
-        incomeLabel.text = "\(totalIncome)"
+        incomeLabel.text = "\(totalIncome) / sec"
         incomeLabel.textAlignment = .center
         incomeLabel.textColor = .white
         incomeLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -105,7 +111,7 @@ class InvestmentView: UIButton {
     private func updateUI() {
         // Update labels with current values
         costLabel.text = "\(cost)"
-        incomeLabel.text = "\(totalIncome) / s"
+        incomeLabel.text = "\(totalIncome) / sec"
         amountLabel.text = "x\(amount)"
     }
 
@@ -136,11 +142,41 @@ class InvestmentView: UIButton {
 
     // Function to handle the purchase
     func purchase() {
+        // Check if the player has enough score to make the purchase
+        let purchaseCost = cost
+        guard parentViewController?.score ?? 0 >= purchaseCost else {
+            // Handle the case when the player doesn't have enough score
+            print("Not enough score to make the purchase")
+            return
+        }
+
+        // Deduct the cost from the score
+        parentViewController?.score -= purchaseCost
+        parentViewController?.scoreLabel.text = "\(parentViewController?.score ?? 0)"
+
         // Implement your purchase logic here
-        // For example, deduct the cost, increase the amount, and update the UI
+        // For example, increase the amount, start earning income, and update the UI
         amount += 1
+
+        // Notify GameViewController about the income generated
+        updateScoreHandler?(totalIncome)
+        
+        if !incomeStarted {
+            startIncome()
+            incomeStarted = true
+        }
+
         // Update UI as needed
         updateUI()
+    }
+    
+    // Function to start earning income
+    private func startIncome() {
+        // You can use a Timer to periodically add income to the score
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            // Notify GameViewController about the income generated
+            self.updateScoreHandler?(self.totalIncome)
+        }
     }
 }
 
